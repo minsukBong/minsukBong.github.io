@@ -5,13 +5,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>My Portfolio</title>
+    <title>Minsuk Bong Portfolio</title>
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
     <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
 </head>
 
 <body>
@@ -25,16 +26,16 @@
         </div>
         <ul id="menu" class="shadow">
             <li>
-                <a href="#education">학력</a>
+                <a href="#projects">프로젝트</a>
+            </li>
+            <li>
+                <a href="#skills">기술</a>
             </li>
             <li>
                 <a href="#experience">경력</a>
             </li>
             <li>
-                <a href="#projects">프로젝트</a>
-            </li>
-            <li>
-                <a href="#skills">기술</a>
+                <a href="#education">학력</a>
             </li>
         </ul>
     </header>
@@ -57,6 +58,117 @@
         <!-- End #lead-down -->
     </div>
     <!-- End #lead -->
+
+    <div id="projects" class="background-alt">
+        <h2 class="heading">프로젝트</h2>
+        <div class="container">
+            <div class="row">
+                <div class="project shadow-large">
+                    <div class="project-info">
+                        <h3>소셜 네트워크 웹게임</h3>
+                        <p>
+                            CakePHP, HTML를 활용한 백엔드, 프론트엔드 개발 및 관리 페이지 개발<br>
+                            Linux, MySQL을 활용한 서버 프로그래밍 및 통계정보 수집<br>
+                            TortoiseSVN을 이용한 팀 프로젝트
+                        </p>
+                        <a href="javascript:;" id="view" rel="1">상세 업무</a>
+                        <div class="code" id="view1" style="display: none;">
+                            <img src="./images/project1.jpg" class="fl mb16 mr8">
+                            <div>cakePHP를 이용한 MVC 구조의 개발</div>
+                            <div>Ajax를 이용해 페이지 로딩이 없는 전투 시스템</div>
+                            <div>Transaction을 이용해 최대 10인 동시 전투가 가능한 레이드 시스템</div>
+                            <div>스킬 아이콘의 픽셀을 읽어내 데이터베이스와 비교하여 위력 표시 오류 등을 검출해내는 디버깅 시스템</div>
+                            <div>데이터 베이스에 등록된 이벤트 정보를 읽어내 자동으로 메뉴화면을 구성하는 기능</div>
+                        </div>
+                    </div>
+                    <!-- End .project-info -->
+                </div>
+                <!-- End .project -->
+            </div>
+            <div class="row">
+                <div class="project shadow-large">
+                    <div class="project-info">
+                        <h3>어플리케이션 API</h3>
+                        <p>
+                            PHP, Laravel을 활용한 서버 API 개발
+                        </p>
+                        <a href="javascript:;" id="view" rel="2">상세 업무</a>
+                        <p id="view2" style="display: none;">
+                            
+                        </p>
+                    </div>
+                    <!-- End .project-info -->
+                </div>
+                <!-- End .project -->
+            </div>
+            <div class="row">
+                <div class="project shadow-large">
+                    <div class="project-info">
+                        <h3>LINC+ 웹페이지 개발</h3>
+                        <p>
+                            PHP, AdoDB, smarty를 활용한 웹페이지 개발
+                        </p>
+                        <a href="javascript:;" id="view" rel="3">상세 업무</a>
+                        <p id="view3" style="display: none;">
+                            
+                        </p>
+                    </div>
+                    <!-- End .project-info -->
+                </div>
+                <!-- End .project -->
+            </div>
+        </div>
+    </div>
+    <!-- End #projects -->
+
+    <div id="skills">
+        <h2 class="heading">기술</h2>
+        <ul>
+            <li>C</li>
+            <li>C++</li>
+            <li>CSS</li>
+            <li>Python</li>
+            <li>Oracle</li>
+            <li>Linux</li>
+        </ul>
+        <ul>
+            <li>C#</li>
+            <li>Unity</li>
+            <li>PHP</li>
+            <li>MySQL</li>
+            <li>HTML</li>
+            <li>JavaScript</li>
+        </ul>
+        <ul>
+            <li>Excel</li>
+            <li>Photoshop</li>
+        </ul>
+    </div>
+    <!-- End #skills -->
+
+    <div id="experience" class="background-alt">
+        <h2 class="heading">경력</h2>
+        <div id="experience-timeline">
+            <div data-date="2017년 4월 – 2020년 3월">
+                <h3>(주)CREEK & RIVER</h3>
+                <h4>프로그래머</h4>
+                <ul>
+                    <li>PHP, HTML, CSS, Javascript를 활용한 백엔드, 프론트엔드 개발 및 관리 페이지 개발</li>
+                    <li>Linux, MySQL을 활용한 서버 프로그래밍 및 통계정보 수집</li>
+                </ul>
+            </div>
+
+            <div data-date="2020년 9월 – 현재 재직중">
+                <h3>(주)엔오엠</h3>
+                <h4>사원</h4>
+                <ul>
+                    <li>PHP, HTML, Javascript, Oracle을 활용한 웹 개발</li>
+                    <li>컨텐츠 매니지먼트 시스템 개발</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- End #experience -->
 
     <div id="education">
         <h2 class="heading">학력</h2>
@@ -91,97 +203,6 @@
         <!-- End .education-block -->
     </div>
     <!-- End #education -->
-
-    <div id="experience" class="background-alt">
-        <h2 class="heading">경력</h2>
-        <div id="experience-timeline">
-            <div data-date="2017년 4월 – 2020년 3월">
-                <h3>(주)CREEK & RIVER</h3>
-                <h4>프로그래머</h4>
-                <ul>
-                    <li>PHP, HTML, CSS, Javascript를 활용한 백엔드, 프론트엔드 개발 및 관리 페이지 개발</li>
-                    <li>Linux, MySQL을 활용한 서버 프로그래밍 및 통계정보 수집</li>
-                </ul>
-            </div>
-
-            <div data-date="2020년 9월 – 현재 재직중">
-                <h3>(주)엔오엠</h3>
-                <h4>사원</h4>
-                <ul>
-                    <li>PHP, HTML, Javascript, Oracle을 활용한 웹 개발</li>
-                    <li>컨텐츠 매니지먼트 시스템 개발</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- End #experience -->
-
-    <div id="projects" class="background-alt">
-        <h2 class="heading">프로젝트</h2>
-        <div class="container">
-            <div class="row">
-                <div class="project shadow-large">
-                    <div class="project-info">
-                        <h3>소셜 네트워크 웹게임</h3>
-                        <p>
-                            PHP, HTML, CSS, Javascript를 활용한 백엔드, 프론트엔드 개발 및 관리 페이지 개발<br>
-                            Linux, MySQL을 활용한 서버 프로그래밍 및 통계정보 수집
-                        </p>
-                        <a href="javascript:;" id="view" rel="1">자세히 보기</a>
-                        <p id="view1" style="display: none;">
-                            
-                        </p>
-                    </div>
-                    <!-- End .project-info -->
-                </div>
-                <!-- End .project -->
-            </div>
-            <div class="row">
-                <div class="project shadow-large">
-                    <div class="project-info">
-                        <h3>LINC+ 웹페이지 개발</h3>
-                        <p>
-                            PHP, Oracle DB를 이용한 웹페이지 개발
-                        </p>
-                        <a href="javascript:;" id="view" rel="2">자세히 보기</a>
-                        <p id="view2" style="display: none;">
-                            
-                        </p>
-                    </div>
-                    <!-- End .project-info -->
-                </div>
-                <!-- End .project -->
-            </div>
-        </div>
-    </div>
-    <!-- End #projects -->
-
-    <div id="skills">
-        <h2 class="heading">기술</h2>
-        <p>기초</p>
-        <ul>
-            <li>C</li>
-            <li>C++</li>
-            <li>CSS</li>
-            <li>Python</li>
-            <li>Oracle</li>
-            <li>Linux</li>
-        </ul>
-        <p>숙련</p>
-        <ul>
-            <li>C#</li>
-            <li>PHP</li>
-            <li>MySQL</li>
-            <li>HTML</li>
-            <li>JavaScript</li>
-        </ul>
-        <p>기타</p>
-        <ul>
-            <li>Excel</li>
-            <li>Photoshop</li>
-        </ul>
-    </div>
-    <!-- End #skills -->
 
     <footer>
         <div class="container">

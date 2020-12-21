@@ -77,13 +77,13 @@
     });
 
     $('a[id^=view]').on('click', function() {
-        if( $("p#view"+this.rel).css('display') == "none" )
+        if( $("#view"+this.rel).css('display') == "none" )
         {
-            $("p#view"+this.rel).css('display', 'block');
+            $("#view"+this.rel).css('display', 'block');
         }
         else
         {
-            $("p#view"+this.rel).css('display', 'none');
+            $("#view"+this.rel).css('display', 'none');
         }
     });
 
