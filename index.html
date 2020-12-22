@@ -67,18 +67,18 @@
                     <div class="project-info">
                         <h3>소셜 네트워크 웹게임</h3>
                         <p>
-                            CakePHP, HTML를 활용한 백엔드, 프론트엔드 개발 및 관리 페이지 개발<br>
+                            PHP, HTML를 활용한 백엔드, 프론트엔드 및 운영 사이트의 개발과 유지보수<br>
+                            CakePHP를 이용한 MVC 구조의 개발<br>
                             Linux, MySQL을 활용한 서버 프로그래밍 및 통계정보 수집<br>
                             TortoiseSVN을 이용한 팀 프로젝트
                         </p>
                         <a href="javascript:;" id="view" rel="1">상세 업무</a>
                         <div class="code" id="view1" style="display: none;">
                             <img src="./images/project1.jpg" class="fl mb16 mr8 w50">
-                            <div>cakePHP를 이용한 MVC 구조의 개발</div>
-                            <div>Ajax를 이용해 페이지 로딩이 없는 전투 시스템</div>
-                            <div>Transaction을 이용해 최대 10인 동시 전투가 가능한 레이드 시스템</div>
-                            <div>스킬 아이콘의 픽셀을 읽어내 데이터베이스와 비교하여 위력 표시 오류 등을 검출해내는 디버깅 시스템</div>
-                            <div>데이터 베이스에 등록된 이벤트 정보를 읽어내 자동으로 메뉴화면을 구성하는 기능</div>
+                            <div>페이지를 다시 로딩하지 않고 전투를 진행할 수 있도록 캔버스에서 애니메이션을 재생하고 Ajax로 통신하는 방식으로 개발</div>
+                            <div>최대 10인 동시 전투가 가능하도록 네트워크 통신량을 최소화, 최적화하는 작업 담당</div>
+                            <div>휴먼 에러를 최소화 하기 위해 php의 imagecolorat 함수를 이용해 스킬 아이콘의 픽셀을 읽어내어 오류를 검출하는 시스템 개발</div>
+                            <div>작업량을 감소시키기 위해 데이터 베이스에 등록된 이벤트 정보를 읽어내 자동으로 메뉴화면을 구성하는 작업 담당</div>
                         </div>
                     </div>
                     <!-- End .project-info -->
@@ -94,26 +94,10 @@
                         </p>
                         <a href="javascript:;" id="view" rel="2">상세 업무</a>
                         <div class="code" id="view2" style="display: none;">
-                            <img src="./images/project2.PNG" class="mb16 w50">
+                            <img src="./images/project2.PNG" class="fl mb16 mr8 w50">
                             <div>OracleDB에 저장된 데이터를 가져와 smarty로 페이지 구성</div>
                             <div>룰렛 이미지를 회전시켜 경품을 얻을 수 있는 이벤트 페이지 개발</div>
-                            <div>
-                                Ajax를 이용해 로딩 없이 검색 및 결과 표시
-                                <pre>
-$( "select[id^='jumpList']" ).on( 'change', function(){
-    var selid = $( this ).prop( 'id' ),
-        olid = 'ol' + $( this ).attr( 'rel' ),
-        listid = 'list' + $( this ).attr( 'rel' ),
-        cate = $( this ).attr( 'rel' ),
-        acotid = $( "#" + selid + " option:selected").val(),
-        formData = { mode: 'proc', proc: 'jumpList', acotid: acotid, cate: cate, returnURL: '{$arrList.returnURL}' };
-
-    setAjax( 'POST', false, './include/ajax.nom', 'html', formData, function ( res ) {
-        $('#'+olid).empty().html(res);
-        $('#'+listid).attr( 'href', '?m=30002&mode=view&acottype='+cate+'&acotid='+acotid);
-    });
-});</pre>
-                            </div>
+                            <div>유저의 편의성을 증가시키기 위해 SelectBox 선택하면 Ajax를 호출하여 페이지 로딩 없이 검색 결과를 표시하는 작업 담당</div>
                         </div>
                     </div>
                     <!-- End .project-info -->
@@ -129,94 +113,10 @@ $( "select[id^='jumpList']" ).on( 'change', function(){
                         </p>
                         <a href="javascript:;" id="view" rel="3">상세 업무</a>
                         <div class="code" id="view3" style="display: none;">
-                            <img src="./images/project3.png" class="mb16 w50">
-                            <div>
-                                엑셀을 입력받고 Python을 실행시켜 데이터를 분석하여 데이터 베이스에 입력하는 기능
-                                <p>
-                                    $command = shell_exec("python GF_revision.py " . escapeshellarg( json_encode( $filename ) ) );<br>
-                                    $resultData = json_decode( $command, true );
-                                </p>
-                            </div>
-                            <div>
-                                eChart를 이용해 분석된 데이터를 차트로 표시, rain flow counting 알고리즘으로 단순화 작업<br>
-                                <pre>
-function getRainflow(data, point, from, to, axes)
-{
-    if(point == 0) return [];
-    var idx1 = from;
-
-    for(var i = from + 1; i < to - 1; i++)
-    {
-        if( axes > 0 )
-        {
-            if( data[i] > data[idx1] ) idx1 = i;
-        }
-        if( axes < 0 )
-        {
-            if( data[i] < data[idx1] ) idx1 = i;
-        }
-    }
-    var idx2 = idx1;
-
-    for(var i = idx1 + 1; i < to - 1; i++)
-    {
-        if( axes > 0 )
-        {
-            if( data[i] < data[idx2] ) idx2 = i;
-        }
-        if( axes < 0 )
-        {
-            if( data[i] > data[idx2] ) idx2 = i;
-        }
-    }
-
-    var indexes = [];
-
-    if( idx1 != from && idx2 != idx1 )
-    {
-        indexes.push(idx1, idx2);
-
-        if( point > 1 )
-        {
-            indexes = indexes.concat(getRainflow(data, point - 1, from, idx1 + 1, axes));
-            indexes = indexes.concat(getRainflow(data, point - 1, idx1, idx2 + 1, axes * -1));
-            indexes = indexes.concat(getRainflow(data, point - 1, idx2, to, axes));
-        }
-    }
-
-    return indexes;
-}</pre>
-                            </div>
-                            <div>
-                                세션 아이디를 이용하여 같은 브라우저로 실행시 마지막으로 입력한 데이터를 불러오는 기능
-                                <pre>
-$phpsessid = ( $_COOKIE['PHPSESSID'] ) ? $_COOKIE['PHPSESSID'] : "";
-$result = null;
-
-if( $phpsessid )
-{
-    $result = mysql_query("SELECT * FROM USEROUTPUT WHERE ID = '{$phpsessid}' ORDER BY row", $connect);
-    while($row = mysql_fetch_array($result)) {
-        $userTemp['p' . $row[1] . '0'] = $row[2];
-        $userTemp['p' . $row[1] . '1'] = $row[3];
-        $userTemp['p' . $row[1] . '2'] = $row[4];
-        $userTemp['p' . $row[1] . '3'] = $row[5];
-        $userTemp['p' . $row[1] . '4'] = $row[6];
-        $userTemp['p' . $row[1] . '5'] = $row[7];
-    }
-
-    $result = mysql_query("SELECT MAX(itime) as HTime, MAX(itemp) as MaxTime, MIN(itemp) as MinTime FROM USER WHERE ID = '{$phpsessid}'", $connect);
-    while($row = mysql_fetch_array($result)) {
-        $userTemp['HTime'] = $row[0];
-        $userTemp['MaxTemp'] = $row[1];
-        $userTemp['MinTemp'] = $row[2];
-        $userTemp['MaxWTemp'] = $row[1] - 10;
-        $userTemp['MinWTemp'] = $row[2] - 10;
-        $userTemp['MaxETemp'] = $row[1] - 5;
-        $userTemp['MinETemp'] = $row[2] - 5;
-    }
-}</pre>
-                            </div>
+                            <img src="./images/project3.png" class="fl mb16 mr8 w50">
+                            <div>엑셀을 입력받고 Python을 실행시켜 데이터를 분석하여 데이터 베이스에 입력하는 기능 개발</div>
+                            <div>eChart를 이용해 분석된 데이터를 차트로 표시, rain flow counting 알고리즘으로 단순화 작업</div>
+                            <div>세션 아이디를 이용하여 같은 브라우저로 실행시 마지막으로 입력한 데이터를 불러오는 기능 개발</div>
                         </div>
                     </div>
                     <!-- End .project-info -->
@@ -232,51 +132,9 @@ if( $phpsessid )
                         </p>
                         <a href="javascript:;" id="view" rel="4">상세 업무</a>
                         <div class="code" id="view4" style="display: none;">
-                            <img src="./images/project4.png" class="mb16 w50">
-                            <div>
-                                Javascript의 클래스를 이용해 캔버스에 파티클을 생성하고 애니메이션을 재생하는 작업
-                                <pre>
-function Update2()
-{
-    if( isNotRendered($("#canvas2").parent()) ) return;
-    
-    var WIDTH_RATIO = CANVAS_WIDTH / 440;
-    var HEIGHT_RATIO = CANVAS_HEIGHT / 880;
-
-    ClearCanvas(ctx2);
-    removeElement(leaves);
-    leaves.forEach(function(leaf, key) {
-        leaf.Update();
-        leaf.Render();
-    });
-
-    leafSpawn += FPS / 1000;
-    if(leafSpawn > 0.6)
-    {
-        leafSpawn = 0;
-        if(leaves.length < 15)
-        {
-            var idx = leaves.push(new Leaf(GetRandom(CANVAS_WIDTH * 0.2, CANVAS_WIDTH * 0.8), GetRandom(0, -24), WIDTH_RATIO, HEIGHT_RATIO, GetRandom(-40, 40, 10), GetRandom(90, 120), Math.round(GetRandom(1, 5)), ctx2)) - 1;
-            var img = new Image();
-            img.onload = function() {
-                leaves[idx].image = img;
-            }
-            img.src = IMG_DIR + "/visual02-"+(leaves[idx].type)+".png";
-        }
-    }
-}</pre>
-                            </div>
-                            <div>
-                                DB에 저장된 설문조사 답변 및 이벤트 당첨자를 집계하여 출력하는 시스템 개발
-                                <pre>
-$SQL = "SELECT	 avt.NOTICE_ID, avt.ACOT_ID, ( SELECT COUNT( s.MEMBER_ID ) FROM ACOT_VOTE_TB s WHERE s.ACOT_ID=avt.ACOT_ID ) cnt , agt.TITLE, agt.TEAM, agt.GUBUN
-        FROM	 ACOT_VOTE_TB avt
-        LEFT JOIN ACOT_GALLERY_TB agt ON ( avt.ACOT_ID = agt.ID )
-        WHERE	 avt.DATA_REGDT BETWEEN TO_DATE( '{$sDate}', 'YYYYMMDD' ) AND TO_DATE( '{$eDate}', 'YYYYMMDD' )
-        GROUP BY avt.NOTICE_ID, avt.ACOT_ID, agt.TITLE, agt.TEAM, agt.GUBUN
-        ORDER BY avt.NOTICE_ID DESC, CNT DESC";
-$RES = $db->getAll( $SQL );</pre>
-                            </div>
+                            <img src="./images/project4.png" class="fl mb16 mr8 w50">
+                            <div>Javascript를 이용해 캔버스에 파티클을 생성하고 애니메이션을 재생하는 작업</div>
+                            <div>DB에 저장된 설문조사 답변 및 이벤트 당첨자를 집계하여 출력하는 시스템 개발</div>
                         </div>
                     </div>
                     <!-- End .project-info -->
