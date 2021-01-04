@@ -2,9 +2,29 @@ div.code {
     padding-top: 12px;
 }
 
+div.project-info a#view div {
+    display: block;
+    position: relative;
+    width: 20%;
+    min-width: 48px;
+    left: 40%;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+
 div.code div { 
     text-align: left;
     margin-bottom: 12px;
+}
+
+div.code li { 
+    text-align: left;
+    margin-bottom: 12px;
+}
+
+div.code img {
+    margin-bottom: 16px;
+    width: 50%;
 }
 
 img.fl {
@@ -46,4 +66,12 @@ img.fl {
 }
 .w100 {
     width: 100%;
+}
+
+@media screen and (max-width:768px) {
+    div.code img {
+        margin-bottom: 8px;
+        margin-right: 8px;
+        width: 60%;
+    }
 }
