@@ -1,0 +1,30 @@
+.board {
+    position: relative;
+    width: 600px;
+    height: 300px;
+    border-spacing: 0px;
+    border: 1px solid #000;
+}
+
+.board td {
+    position: relative;
+    border-right: 1px solid #ccc;
+}
+
+.board .pillar {
+    position: absolute;
+    width: 10%;
+    height: 60%;
+    left: 45%;
+    bottom: -1px;
+    border: 1px solid #444;
+    background-color: #fc0;
+}
+
+.board .pillar .disk {
+    position: absolute;
+    height: 10px;
+    border: 1px solid #000;
+    border-radius: 4px;
+    background-color: #c84;
+}
