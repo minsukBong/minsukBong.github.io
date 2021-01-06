@@ -82,7 +82,8 @@
         $(item).on('mouseout', function() {
             $(this).css("background-color", "#cfc");
         });
-        $(item).on('mousedown', function() {
+        $(item).on('mousedown', function(e) {
+            if(e.buttons != 1) return;
             $(this).css("background-color", MDC);
         });
         $(item).on('mouseup', mouseupfn);
@@ -215,7 +216,9 @@
                 }
                 validField.each(function() {
                     if($(this).text() == "" || $(this).text() == turn) {
-                        setClickable(this, function() {
+                        setClickable(this, function(e) {
+                            if(e.button != 0) return;
+
                             $(this).css("background-color", MOC);
                             curX = $(this).attr("x");
                             curY = $(this).attr("y");
@@ -239,7 +242,9 @@
                         if(x == 0)      { $(this).text("→"); $(this).attr("value", "R");  }
                         if(x == XEDGE)  { $(this).text("←"); $(this).attr("value", "L"); }
 
-                        setClickable(this, function() {
+                        setClickable(this, function(e) {
+                            if(e.button != 0) return;
+
                             $(this).css("background-color", MOC);
                             MoveBoard($(this).attr("value"));
                         });

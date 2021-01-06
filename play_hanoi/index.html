@@ -27,11 +27,12 @@
     </table>
 </body>
 <script>
-    const DISK_NUM = 5;
+    const DISK_NUM = 6;
     const WIDTH = 200;
     const WIDTH_ADD = 100;
     const HEIGHT = 10;
     const HEIGHT_ADD = 4;
+    const SOLVE_SPEED = 50;
 
     let SolveArray = [];
     let SolveInterval;
@@ -131,6 +132,28 @@
         return pillarNum;
     }
 
+    function Optimize()
+    {
+        for(var i = 3; i < SolveArray.length; i += 2)
+        {
+            for(var j = 0; j < SolveArray.length - i; j += 2)
+            {
+                var check = false;
+                for(var k = 0; k < i; k++)
+                {
+                    if((j + k) > (j + i - k)) break;
+                    check = SolveArray[j + k] == SolveArray[j + (i - k)];
+                    if(!check) break;
+                }
+                if(check)
+                {
+                    SolveArray.splice(j, i+1)
+                    i = 3; j = -2;
+                };
+            }
+        }
+    }
+
     function Solver()
     {
         clearInterval(SolveInterval);
@@ -156,16 +179,10 @@
         
         if(curPillarNum != 2)
             HanoiSolve(DISK_NUM, curPillarNum, passPillarNum, nxtPillarNum);
+
+        Optimize();
         
-        for(var i = 0; i < SolveArray.length - 3; i++)
-        {
-            if(SolveArray[i + 0] == SolveArray[i + 3] && SolveArray[i + 1] == SolveArray[i + 2])
-            {
-                SolveArray.splice(i, 4);
-            }
-        }
-        
-        SolveInterval = setInterval(AutoMove, 350);
+        SolveInterval = setInterval(AutoMove, SOLVE_SPEED);
     }
 
     function HanoiSolve(pillar, from, pass, to)
