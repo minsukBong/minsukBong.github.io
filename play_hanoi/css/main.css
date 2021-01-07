@@ -1,0 +1,56 @@
+.board {
+	position: relative;
+	width: 600px;
+	height: 300px;
+	border-spacing: 0px;
+	border: 1px solid #000;
+}
+
+.board td {
+	position: relative;
+	border-right: 1px solid #ccc;
+}
+
+.board .pillar {
+	position: absolute;
+	width: 10%;
+	height: 60%;
+	left: 45%;
+	bottom: -1px;
+	border: 1px solid #444;
+	background-color: #fc0;
+}
+
+.board .pillar .help {
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	top: -60%;
+	left: -50%;
+	font-size: 64px;
+	color: rgba(0,0,0,0.5);
+}
+
+.board .pillar .disk {
+	position: absolute;
+	height: 10px;
+	border: 1px solid #000;
+	border-radius: 4px;
+	background-color: #c84;
+}
+
+#log {
+	font-size: 32px;
+	padding-left: 16px;
+	user-select: none;
+}
+
+#log ul {
+	padding-left: 64px;
+	overflow-y: scroll;
+	height: 480px;
+}
+
+#log ul li {
+	list-style-type: decimal-leading-zero;
+}

@@ -1,0 +1,45 @@
+.screen {
+	width: 1280px;
+}
+
+.screen td {
+	width: 640px;
+	vertical-align: top;
+}
+
+.board {
+	border-spacing: 0px;
+	border-top: 1px solid #000;
+	border-left: 1px solid #000;
+}
+
+.board td {
+	text-align: center;
+    vertical-align: middle;
+	font-size: 32px;
+	width: 64px;
+	height: 64px;
+	background-blend-mode: multiply;
+
+	border-right: 1px solid #000;
+	border-bottom: 1px solid #000;
+}
+
+.board td[type=field] {
+	background: url("../img/quixo-d.jpg");
+	background-size: 64px 64px;
+	content:"";
+}
+
+.board td[type=field].O {
+	background-image: url("../img/quixo-o.jpg");
+}
+
+.board td[type=field].X {
+	background-image: url("../img/quixo-x.jpg");
+}
+
+.notice {
+	font-size: 48px;
+	margin-bottom: 24px;
+}

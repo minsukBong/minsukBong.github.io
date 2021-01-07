@@ -2,213 +2,41 @@
 <html lang="kr">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Minsuk Bong PlayGround</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Minsuk Bong PlayGround</title>
 	<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-    <link rel="icon" href="../favicon.ico" type="image/x-icon">
-    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-    <link href="./css/hanoi.css" rel="stylesheet">
+	<link rel="icon" href="../favicon.ico" type="image/x-icon">
+	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<link href="./css/main.css" rel="stylesheet">
 </head>
 <body>
-    <table class="board">
-        <tr>
-            <td onclick="areaClick(0)">
-                <div class="pillar"></div>
-            </td>
-            <td onclick="areaClick(1)">
-                <div class="pillar"></div>
-            </td>
-            <td onclick="areaClick(2)">
-                <div class="pillar"></div>
-            </td>
-        </tr>
-    </table>
+	<table class="board">
+		<tr>
+			<td onclick="areaClick(0)">
+				<div class="pillar">
+					<div class="help">Q</div>
+				</div>
+			</td>
+			<td onclick="areaClick(1)">
+				<div class="pillar">
+					<div class="help">W</div>
+				</div>
+			</td>
+			<td onclick="areaClick(2)">
+				<div class="pillar">
+					<div class="help">E</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<br>
+	<div id="log">
+		Log<br>
+		<ul>
+			
+		</ul>
+	</div>
 </body>
-<script>
-    const DISK_NUM = 6;
-    const WIDTH = 200;
-    const WIDTH_ADD = 100;
-    const HEIGHT = 10;
-    const HEIGHT_ADD = 4;
-    const SOLVE_SPEED = 50;
-
-    let SolveArray = [];
-    let SolveInterval;
-
-    let Pillars = [[],[],[]];
-    let Selected = "";
-
-    $(window).ready(Init);
-    
-    function Init()
-    {
-        clearInterval(SolveInterval);
-        Pillars = [[],[],[]];
-        $(".disk").remove();
-        for(var i = DISK_NUM - 1; i >= 0; i--)
-        {
-            var newDisk = document.createElement("div");
-            $(newDisk).attr("rel", i);
-            $(newDisk).attr("class", "disk");
-            $(newDisk).css("width", (WIDTH + (i * WIDTH_ADD) + "%"));
-            $(newDisk).css("left", (-55 - (i * WIDTH_ADD / 2) + "%"));
-            $(newDisk).css("bottom", (-1 + ((Pillars[0].length) * (HEIGHT + HEIGHT_ADD)) + "px"));
-            Pillars[0].push(i);
-            $(".board tr td .pillar")[0].appendChild(newDisk);
-        }
-    }
-
-    $(window).on('keydown', function(e) {
-        switch(e.key)
-        {
-            case "q":
-            case "Q":
-            case "7":
-                areaClick(0);
-                break;
-            case "w":
-            case "W":
-            case "8":
-                areaClick(1);
-                break;
-            case "e":
-            case "E":
-            case "9":
-                areaClick(2);
-                break;
-            case " ":
-                Solver();
-                break;
-            default:
-                console.log(e.key);
-                break;
-        }
-    });
-
-    function areaClick(num, auto = false)
-    {
-        if( auto == false ) clearInterval(SolveInterval);
-        if(Selected === "")
-        {
-            Selected = Pillars[num].pop();
-            if( Selected == undefined) {
-                Selected = "";
-                return;
-            }
-            $(".disk[rel="+Selected+"]").css("bottom", "250px");
-            $(".board td").each(function(key) {
-                if( Pillars[key][Pillars[key].length - 1] < Selected )
-                {
-                    $(this).css("background-color", "#fcc");
-                }
-                else
-                {
-                    $(this).css("background-color", "#cfc");
-                }
-            });
-        }
-        else
-        {
-            if( Pillars[num].length == 0 || Pillars[num][Pillars[num].length - 1] > Selected )
-            {
-                $(".disk[rel="+Selected+"]").appendTo($(".pillar")[num]);
-                $(".disk[rel="+Selected+"]").css("bottom", (-1 + ((Pillars[num].length) * (HEIGHT + HEIGHT_ADD)) + "px"));
-                Pillars[num].push(Selected);
-                Selected = "";
-                $(".board td").each(function(key) {
-                    $(this).css("background-color", "#fff");
-                });
-            }
-        }
-    }
-
-    function findPillar(num)
-    {
-        var pillarNum = -1;
-        for(var i = 0; i < 3; i++)
-            if( pillarNum == -1 && Pillars[i].includes(num) ) pillarNum = i;
-        return pillarNum;
-    }
-
-    function Optimize()
-    {
-        for(var i = 3; i < SolveArray.length; i += 2)
-        {
-            for(var j = 0; j < SolveArray.length - i; j += 2)
-            {
-                var check = false;
-                for(var k = 0; k < i; k++)
-                {
-                    if((j + k) > (j + i - k)) break;
-                    check = SolveArray[j + k] == SolveArray[j + (i - k)];
-                    if(!check) break;
-                }
-                if(check)
-                {
-                    SolveArray.splice(j, i+1)
-                    i = 3; j = -2;
-                };
-            }
-        }
-    }
-
-    function Solver()
-    {
-        clearInterval(SolveInterval);
-        SolveArray = [];
-        for(var i = 0; i < DISK_NUM - 1; i++)
-        {
-            var curPillarNum = -1;
-            var nxtPillarNum = -1;
-            var passPillarNum = -1;
-            curPillarNum = findPillar(i);
-            nxtPillarNum = findPillar(i+1);
-            for(var j = 0; j < 3; j++)
-                if( j != curPillarNum && j != nxtPillarNum ) passPillarNum = j;
-
-            if(curPillarNum != nxtPillarNum) HanoiSolve(i+1, curPillarNum, passPillarNum, nxtPillarNum);
-        }
-        var curPillarNum = -1;
-        var nxtPillarNum = 2;
-        var passPillarNum = -1;
-        curPillarNum = findPillar(DISK_NUM-1);
-        for(var j = 0; j < 3; j++)
-            if( j != curPillarNum && j != nxtPillarNum ) passPillarNum = j;
-        
-        if(curPillarNum != 2)
-            HanoiSolve(DISK_NUM, curPillarNum, passPillarNum, nxtPillarNum);
-
-        Optimize();
-        
-        SolveInterval = setInterval(AutoMove, SOLVE_SPEED);
-    }
-
-    function HanoiSolve(pillar, from, pass, to)
-    {
-        if(pillar > 1)
-        {
-            HanoiSolve(pillar-1, from, to, pass);
-            SolveArray.push(from);
-            SolveArray.push(to);
-            HanoiSolve(pillar-1, pass, from, to);
-        }
-        else
-        {
-            SolveArray.push(from);
-            SolveArray.push(to);
-        }
-    }
-
-    function AutoMove()
-    {
-        if( SolveArray.length == 0 )
-        {
-            clearInterval(SolveInterval);
-            return;
-        }
-
-        areaClick(SolveArray.shift(), true);
-    }
-</script>
+<script src="./js/game.js"></script>
