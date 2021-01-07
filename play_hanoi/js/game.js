@@ -3,7 +3,7 @@ const WIDTH = 200;
 const WIDTH_ADD = 100;
 const HEIGHT = 10;
 const HEIGHT_ADD = 4;
-const SOLVE_SPEED = 500;
+const SOLVE_SPEED = 100;
 
 const PILLAR_NAME = ["L", "M", "R"];
 
