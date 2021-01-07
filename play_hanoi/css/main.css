@@ -39,6 +39,16 @@
 	background-color: #c84;
 }
 
+input {
+	margin-left: 2px;
+	margin-right: 8px;
+	margin-top: 16px;
+	width: 128px;
+	height: 64px;
+
+	font-size: 32px;
+}
+
 #log {
 	font-size: 32px;
 	padding-left: 16px;
