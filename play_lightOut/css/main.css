@@ -1,0 +1,52 @@
+@keyframes btow
+{
+    0% { background-color: black; }
+    100% { background-color: white; }
+}
+
+@keyframes wtob
+{
+    0% { background-color: white; }
+    100% { background-color: black; }
+}
+
+body {
+    background-color: white;
+}
+
+table {
+    border-spacing: 0px;
+    border-top: 1px solid #888;
+    border-left: 1px solid #888;
+    width: 300px;
+    height: 300px;
+}
+
+table td {
+    cursor: pointer;
+    border-bottom: 1px solid #888;
+    border-right: 1px solid #888;
+    animation-duration: 0.25s;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+    
+    color: #8888;
+    font-size: 24px;
+    text-align: center;
+    user-select: none;
+}
+
+input {
+    width: 120px;
+    height: 66px;
+    margin-top: 32px;
+    margin-right: 32px;
+}
+
+div {
+    width: max-content;
+}
+
+ul {
+    font-size: 16px;
+}

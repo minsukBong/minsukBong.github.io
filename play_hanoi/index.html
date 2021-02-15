@@ -1,49 +1,49 @@
 <!DOCTYPE html>
 <html lang="kr">
-
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Minsuk Bong PlayGround</title>
-	<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-	<link rel="icon" href="../favicon.ico" type="image/x-icon">
-	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
-	<link href="./css/main.css" rel="stylesheet">
-</head>
-<body>
-	<table class="board">
-		<tr>
-			<td onclick="areaClick(0)">
-				<div class="pillar">
-					<div class="help">Q</div>
-				</div>
-			</td>
-			<td onclick="areaClick(1)">
-				<div class="pillar">
-					<div class="help">W</div>
-				</div>
-			</td>
-			<td onclick="areaClick(2)">
-				<div class="pillar">
-					<div class="help">E</div>
-				</div>
-			</td>
-		</tr>
-	</table>
-	<input type="button" value="3" onclick="DISK_NUM = 3; Init()">
-	<input type="button" value="4" onclick="DISK_NUM = 4; Init()">
-	<input type="button" value="5" onclick="DISK_NUM = 5; Init()">
-	<input type="button" value="6" onclick="DISK_NUM = 6; Init()">
-	<br>
-	<input type="button" value="Reset" onclick="Init()">
-	<input type="button" value="Solve" onclick="Solver()">
-	<br>
-	<div id="log">
-		Log<br>
-		<ul>
-			
-		</ul>
-	</div>
-</body>
-<script src="./js/game.js"></script>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Minsuk Bong PlayGround</title>
+		<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+		<link rel="icon" href="../favicon.ico" type="image/x-icon">
+		<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+		<link href="./css/main.css" rel="stylesheet">
+	</head>
+	<body>
+		<table class="board">
+			<tr>
+				<td onclick="areaClick(0)">
+					<div class="pillar">
+						<div class="help">Q</div>
+					</div>
+				</td>
+				<td onclick="areaClick(1)">
+					<div class="pillar">
+						<div class="help">W</div>
+					</div>
+				</td>
+				<td onclick="areaClick(2)">
+					<div class="pillar">
+						<div class="help">E</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<input type="button" value="3" onclick="DISK_NUM = 3; Init()">
+		<input type="button" value="4" onclick="DISK_NUM = 4; Init()">
+		<input type="button" value="5" onclick="DISK_NUM = 5; Init()">
+		<input type="button" value="6" onclick="DISK_NUM = 6; Init()">
+		<br>
+		<input type="button" value="Reset" onclick="Init()">
+		<input type="button" value="Solve" onclick="Solver()">
+		<br>
+		<div id="log">
+			Log<br>
+			<ul>
+				
+			</ul>
+		</div>
+	</body>
+	<script src="./js/game.js"></script>
+</html>
